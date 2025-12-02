@@ -14,6 +14,18 @@ public class Jugador {
         this.tipo = tipo;
     }
 
+    public int getDinero() {
+        return dinero;
+    }
+
+    public void ganar(int cantidad) {
+        dinero += cantidad;
+    }
+
+    public void perder(int cantidad) {
+        dinero -= cantidad;
+    }
+
     @Override
     public String toString() {
         return "Jugador{" +
