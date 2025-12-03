@@ -1,5 +1,9 @@
 package Clases;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
 public class Mazo {
     private ArrayList<Carta> cartas = new ArrayList<>();
     private ArrayList<Integer> valoresFinales = new ArrayList<>();
@@ -24,12 +28,10 @@ public class Mazo {
         if (c.getValor() == Valor.AS && jugador) {
             System.out.println("Te ha salido un As: " + c);
             System.out.print("¿Quieres que valga 1 u 11? Introduce el valor: ");
-            int eleccion = sc.nextInt();
+            int eleccion = teclado.nextInt();
             if (eleccion != 1 && eleccion != 11) eleccion = 11;
             valoresFinales.add(eleccion);
-        } else {
-            valoresFinales.add(valorNumericoAuto(c));
-        }
+        } 
     }
 
 
