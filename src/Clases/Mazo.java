@@ -1,5 +1,9 @@
 package Clases;
 
-public class Mazo {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
+public class Mazo {
+    
 }
