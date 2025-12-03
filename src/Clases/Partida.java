@@ -5,23 +5,46 @@ import java.util.Scanner;
 
 public class Partida {
 
-<<<<<<< HEAD
-    
-=======
     Mazo mazo;
     Jugador jugador;
     Jugador cuprier;
 
     private Scanner teclado= new Scanner(System.in);
-    public void crearjugador(Jugador jugador1){
-   
-        String nombrejugador=teclado.nextLine();
-        if (jugador1==jugador) {
-            Jugador jugador=new Jugador(nombrejugador, Tipo.JUGADOR);
+    public void crearjugador(Jugador tipoJugador) {
+
+        teclado.nextLine(); // limpiar buffer
+
+        System.out.print("Introduce nombre: ");
+        String nombre = teclado.nextLine();
+
+        if (tipoJugador == jugador) {
+            jugador = new Jugador(nombre, Tipo.JUGADOR);
+            System.out.println("Jugador creado correctamente.\n");
+        } else {
+            cuprier = new Jugador(nombre, Tipo.CUPRIER);
+            System.out.println("Crupier creado correctamente.\n");
         }
-        else{
-            Jugador cuprier=new Jugador(nombrejugador, Tipo.CUPRIER);
+    }
+
+    private void mostrarFondos() {
+        System.out.print("\nTipo (1=CABALLERO, 2=MAGO, 3=ORCO): ");
+        int t = teclado.nextInt();
+        teclado.nextLine();
+
+        Tipo tipo = switch (t) {
+            case 1 -> Tipo.JUGADOR;
+            case 2 -> Tipo.CUPRIER;
+            default -> null;    
+        };
+
+        if (jugador == null || cuprier == null) {
+            System.out.println("Primero debes crear jugador y crupier.");
+            return;
         }
+
+        System.out.println("\n--- Fondos actuales ---");
+        System.out.println("Jugador: " + jugador.getDinero() + "€");
+        System.out.println("Crupier: " + cuprier.getDinero() + "€\n");
     }
 
     public void iniciapartida(){
@@ -41,11 +64,9 @@ public class Partida {
             switch(opcion) {
                 case 1:
                     crearjugador(jugador);
-                    System.out.println(jugador.toString());
                     break;
                 case 2:
                     crearjugador(cuprier);
-                    System.out.println(cuprier.toString());
                     break;
                 case 3:
                     
@@ -57,5 +78,5 @@ public class Partida {
 
 
     }
->>>>>>> main
+
 }

@@ -1,5 +1,5 @@
 package Clases;
 
 public enum Tipo{
-    JUGADOR, CUPRIER
+    JUGADOR, CRUPIER
 }
