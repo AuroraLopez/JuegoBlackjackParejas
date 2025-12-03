@@ -5,6 +5,10 @@ public class Jugador {
     private int dinero = 100;
     private Tipo tipo;
 
+    public Jugador (){
+
+    }
+
     public Jugador(String nombre, Tipo tipo) {
         this.nombre = nombre;
         this.tipo = tipo;
