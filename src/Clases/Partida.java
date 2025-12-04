@@ -1,47 +1,48 @@
 package Clases;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Partida {
 
     private Mazo mazo;
-    private Jugador crupier=new Jugador(null, Tipo.CRUPIER);
-    private Jugador jugador=new Jugador(null, Tipo.JUGADOR);
+    private Jugador crupier;
+    private Jugador jugador;
 
-    private Scanner teclado= new Scanner(System.in);
-    public void crearjugador(Jugador jugador1){
+    private Scanner teclado = new Scanner(System.in);
+
+    public void crearJugador(Tipo tipo) {
+
         teclado.nextLine();
-       
-        if (jugador1==jugador) {
-            System.out.print("Introduzca el nombre: ");
-            String nombrejugador=teclado.nextLine();
-            jugador.setNombre(nombrejugador);
-        }
-        else{
-            System.out.print("Introduzca el nombre: ");
-            String nombrecuprier=teclado.nextLine();
-            crupier.setNombre(nombrecuprier);
+        System.out.print("Introduce el nombre: ");
+        String nombre = teclado.nextLine();
+
+        if (tipo == Tipo.JUGADOR) {
+            jugador = new Jugador(nombre, Tipo.JUGADOR);
+            System.out.println("Jugador creado.");
+        } else {
+            crupier = new Jugador(nombre, Tipo.CRUPIER);
+            System.out.println("Crupier creado.");
         }
     }
-    public void getFondos(){
+
+    public void getFondos() {
         System.out.println("Presiona 1 si eres jugador, presiona 2 si eres cuprier");
-        int tipo=teclado.nextInt() ;
-        if (tipo==1) {
+        int tipo = teclado.nextInt();
+        if (tipo == 1) {
             System.out.println(jugador.getDinero());
-        }
-        else if (tipo==2) {
+        } else if (tipo == 2) {
             System.out.println(crupier.getDinero());
-        }
-        else{
+        } else {
             System.out.print("Ha introducido una opcion incorrecta");
         }
     }
-    public void iniciapartida(){
+
+    public void iniciapartida() {
 
     }
-    public void mostrarmenu(){
-        
+
+    public void mostrarmenu() {
+
         int opcion;
         do {
             System.out.println("Introduzca una opcion o 0 para salir");
@@ -51,14 +52,12 @@ public class Partida {
             System.out.println("3. Mostrar fondos");
             System.out.println("4. Iniciar partida");
             opcion = teclado.nextInt();
-            switch(opcion) {
+            switch (opcion) {
                 case 1:
-                    crearjugador(jugador);
-                    System.out.println(jugador.toString());
+                    crearJugador(Tipo.JUGADOR);
                     break;
                 case 2:
-                    crearjugador(crupier);
-                    System.out.println(crupier.toString());
+                    crearJugador(Tipo.CRUPIER);
                     break;
                 case 3:
                     getFondos();
@@ -66,8 +65,10 @@ public class Partida {
                 case 4:
                     iniciapartida();
             }
-        }while(opcion!=0 && jugador.getDinero()>0 && crupier.getDinero()>0);
-
+        } while (opcion != 0 &&
+                jugador != null &&
+                jugador.getDinero() > 0 &&
+                (crupier == null || crupier.getDinero() > 0));
 
     }
 }
