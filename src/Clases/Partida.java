@@ -38,6 +38,12 @@ public class Partida {
     }
 
     public void iniciapartida() {
+        mazo = new Mazo();
+        mazo.barajar();
+        
+        while (jugador.getDinero()>0 && crupier.getDinero()>0) {
+    
+        }
 
     }
 
