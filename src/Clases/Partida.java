@@ -13,11 +13,11 @@ public class Partida {
     private int victoriasJugador = 0;
     private int victoriasCrupier = 0;
 
-
+    // Función para mostrar menu
     public void mostrarMenu() {
 
         int opcion;
-
+        // Bucle para que se muestre el menu hasta que pase algo
         do {
             System.out.println("\n---- MENÚ ----");
             System.out.println("1. Crear jugador");
@@ -29,7 +29,7 @@ public class Partida {
 
             opcion = teclado.nextInt();
             teclado.nextLine(); // limpiar buffer
-
+            // Condiciones dependiendo de la opcion que se elija
             switch (opcion) {
                 case 1:
                     crearJugador(Tipo.JUGADOR);
@@ -54,7 +54,7 @@ public class Partida {
         } while (opcion != 0 );
     }
 
-
+    // Metodo para crear el jugador
     private void crearJugador(Tipo tipo) {
 
         System.out.print("\nIntroduce el nombre: ");
@@ -69,7 +69,7 @@ public class Partida {
         }
     }
 
-
+    // Para poder mostrar el dinero que le queda al jugador
     private void mostrarFondos() {
         System.out.println("\nFondos actuales:");
         if (jugador != null)
@@ -82,7 +82,7 @@ public class Partida {
         }
     }
 
-
+    // Metodo para iniciar la partida
     private void iniciarPartida() {
 
         // El juego termina solo si el jugador se queda sin dinero
@@ -124,14 +124,14 @@ public class Partida {
         mostrarMarcador();
     }
 
-
+    // Función para ver el marcador de las victorias
     private void mostrarMarcador() {
         System.out.println("\n----- MARCADOR -----");
         System.out.println("Victorias del jugador: " + victoriasJugador);
         System.out.println("Victorias del crupier: " + victoriasCrupier);
     }
 
-
+    // Función para la hora de pedir las apuestas
     private int pedirApuesta() {
 
         int apuesta;
@@ -147,7 +147,7 @@ public class Partida {
         return apuesta;
     }
 
-
+    // Metodo para repartir las primeras cartas
     private void repartirCartasIniciales() {
 
         jugador.getMano().agregarCarta(mazo.sacarCarta());
@@ -157,7 +157,7 @@ public class Partida {
         crupier.getMano().agregarCarta(mazo.sacarCarta());
     }
 
-
+    // Metodos para ver las manos de cada uno
     private void mostrarManos(boolean mostrarCrupier) {
 
         System.out.println("\n===== MANOS =====");
@@ -171,7 +171,7 @@ public class Partida {
         }
     }
 
-
+    // Metodos para los distintos turnos, en este caso jugador
     private void turnoJugador() {
 
         String opcion;
@@ -190,7 +190,7 @@ public class Partida {
         } while (opcion.equals("s") && jugador.getMano().getPuntuacion() <= 21);
     }
 
-
+    // Metodos para los distintos turnos, en este caso crupier
     private void turnoCrupier() {
 
         System.out.println("\nTurno del crupier...");
@@ -203,7 +203,7 @@ public class Partida {
         }
     }
 
-
+    // Metodo para saber si quien de los dos ha ganado
     private void determinarGanador(int apuesta) {
 
         int puntosJugador = jugador.getMano().getPuntuacion();
