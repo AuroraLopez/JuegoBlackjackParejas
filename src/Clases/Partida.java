@@ -42,7 +42,7 @@ public class Partida {
         mazo.barajar();
         
         while (jugador.getDinero()>0 && crupier.getDinero()>0) {
-    
+            
         }
 
     }
