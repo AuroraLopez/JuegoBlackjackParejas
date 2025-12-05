@@ -8,7 +8,6 @@ public class Partida {
     private Jugador crupier;
     private Jugador jugador;
 
-<<<<<<< HEAD
     private Scanner teclado= new Scanner(System.in);
     public void crearjugador(Jugador tipoJugador) {
 
@@ -40,22 +39,6 @@ public class Partida {
         if (jugador == null || cuprier == null) {
             System.out.println("Primero debes crear jugador y crupier.");
             return;
-=======
-    private Scanner teclado = new Scanner(System.in);
-
-    public void crearJugador(Tipo tipo) {
-
-        teclado.nextLine();
-        System.out.print("Introduce el nombre: ");
-        String nombre = teclado.nextLine();
-
-        if (tipo == Tipo.JUGADOR) {
-            jugador = new Jugador(nombre, Tipo.JUGADOR);
-            System.out.println("Jugador creado.");
-        } else {
-            crupier = new Jugador(nombre, Tipo.CRUPIER);
-            System.out.println("Crupier creado.");
->>>>>>> main
         }
 
         System.out.println("\n--- Fondos actuales ---");
@@ -98,17 +81,10 @@ public class Partida {
             opcion = teclado.nextInt();
             switch (opcion) {
                 case 1:
-<<<<<<< HEAD
                     crearjugador(jugador);
                     break;
                 case 2:
                     crearjugador(cuprier);
-=======
-                    crearJugador(Tipo.JUGADOR);
-                    break;
-                case 2:
-                    crearJugador(Tipo.CRUPIER);
->>>>>>> main
                     break;
                 case 3:
                     getFondos();
