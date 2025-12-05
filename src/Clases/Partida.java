@@ -20,7 +20,7 @@ public class Partida {
             jugador = new Jugador(nombre, Tipo.JUGADOR);
             System.out.println("Jugador creado correctamente.\n");
         } else {
-            cuprier = new Jugador(nombre, Tipo.CUPRIER);
+            crupier = new Jugador(nombre, Tipo.CRUPIER);
             System.out.println("Crupier creado correctamente.\n");
         }
     }
@@ -32,18 +32,18 @@ public class Partida {
 
         Tipo tipo = switch (t) {
             case 1 -> Tipo.JUGADOR;
-            case 2 -> Tipo.CUPRIER;
+            case 2 -> Tipo.CRUPIER;
             default -> null;    
         };
 
-        if (jugador == null || cuprier == null) {
+        if (jugador == null || crupier == null) {
             System.out.println("Primero debes crear jugador y crupier.");
             return;
         }
 
         System.out.println("\n--- Fondos actuales ---");
         System.out.println("Jugador: " + jugador.getDinero() + "€");
-        System.out.println("Crupier: " + cuprier.getDinero() + "€\n");
+        System.out.println("Crupier: " + crupier.getDinero() + "€\n");
     }
 
     public void getFondos() {
@@ -85,6 +85,12 @@ public class Partida {
                     break;
                 case 2:
                     crearjugador(cuprier);
+=======
+                    crearJugador(Tipo.JUGADOR);
+                    break;
+                case 2:
+                    crearJugador(Tipo.CRUPIER);
+>>>>>>> main
                     break;
                 case 3:
                     getFondos();
