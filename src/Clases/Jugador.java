@@ -18,6 +18,10 @@ public class Jugador {
         this.tipo = tipo;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public int getDinero() {
         return dinero;
     }
